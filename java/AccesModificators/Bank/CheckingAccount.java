@@ -1,30 +1,32 @@
 package bank;
 
-public class Bank{
-  private CheckingAccount accountOne;
-  private CheckingAccount accountTwo;
+public class CheckingAccount{
+  private String name;
+  private int balance;
+  private String id;
+  private double interestRate;
 
-  public Bank(){
-    accountOne = new CheckingAccount("Zeus", 100, "1");
-    accountTwo = new CheckingAccount("Hades", 200, "2");
+  public CheckingAccount(String inputName, int inputBalance, String inputId){
+    this.name = inputName;
+    this.balance = inputBalance;
+    this.id = inputId;
+    this.interestRate = 0.02;
   }
 
-  public static void main(String[] args){
-    Bank bankOfGods = new Bank();
-    System.out.println(bankOfGods.accountOne.getBalance());
-    bankOfGods.accountOne.consignar(5000);
-    System.out.println(bankOfGods.accountOne.getBalance());
-    bankOfGods.accountOne.consignar(2000);
-    System.out.println(bankOfGods.accountOne.getBalance());
-    bankOfGods.accountOne.consignar(1000);
-    System.out.println(bankOfGods.accountOne.getBalance());
-    bankOfGods.accountOne.retirar(1000);
-    System.out.println(bankOfGods.accountOne.getBalance());
-    bankOfGods.accountOne.retirar(3000);
-    System.out.println(bankOfGods.accountOne.getBalance());
-    bankOfGods.accountOne.retirar(2000);
-    System.out.println(bankOfGods.accountOne.getBalance());
-    System.out.println(bankOfGods.accountOne.getMonthlyInterest());
+  public int getBalance(){
+    return this.balance;
+  }
+    public void setBalance(int newBalance){
+    this.balance = newBalance;
+  }
+     public void consignar(int consignar){
+    this.balance = balance + consignar;
+  }
+    public void retirar(int retirar){
+    this.balance = balance - retirar;
+  }
 
+  public double getMonthlyInterest(){
+    return this.interestRate * this.balance;
   }
 }
