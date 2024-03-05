@@ -1,4 +1,4 @@
-Bank{
+public class Bank{
   private CheckingAccount accountOne;
   private CheckingAccount accountTwo;
 
